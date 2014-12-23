@@ -1,0 +1,18 @@
+Exploit 1
+exploit: set cookie on own browser to be equal to the username to be hacked
+solution: implement randomized session hash assigned upon authentication
+. session key would be stored in users database
+. session hash set as cookie
+. actual user is looked up on database based upon cookie
+
+Exploit 2
+exploit: force document to get cookie from each client and issue get request to
+own server through src attribute
+solution: don't use third-party javascript
+
+Exploit 3
+exploit: inject valid html / javascript via username field in register form.
+since our servers take the usernames and displays it on the welcome page as
+plain strings, valid html / javascript would be executed
+solution: html-escape all user input
+

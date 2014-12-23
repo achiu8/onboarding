@@ -1,0 +1,59 @@
+#container {
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+#user {
+  font-weight: normal;
+}
+
+.errors {
+  display: none;
+  font-size: 0.8em;
+  min-height: 20px;
+}
+
+.inbox {
+  position: relative;
+  width: 100%;
+  font-size: 0.8em;
+}
+
+.email-list-item {
+  position: relative;
+  display: block;
+  margin-top: 3px;
+  padding: 5px;
+  width: 100%;
+  min-height: 20px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+}
+
+.email-list-item:first-child {
+  margin-top: 0;
+}
+
+.email-list-item:hover {
+  cursor: pointer;
+}
+
+.email-detail {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+}
+
+.email-label {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Unread {
+  background-color: white;
+  font-weight: bold;
+}

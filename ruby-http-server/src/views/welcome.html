@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Welcome</title>
+    <meta http-equiv="refresh" content="10">
+    <!--script src="http://192.168.1.82:8000/jquery.2.1.min.js"-->
+    </script>
+  </head>
+  <body>
+    <h1>Hello {{user}}</h1>
+    <a href="/profile">Profile</a>
+    <a href="/visit">Visits</a>
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+    <a href="/logout">Logout</a>
+    <p>Welcome to the world's simplest web server.</p>
+    <p><img src='http://i.imgur.com/A3crbYQ.gif'></p>
+    <h2>Users:</h2>
+    <ul>
+    {{users}}
+    </ul>
+  </body>
+</html>

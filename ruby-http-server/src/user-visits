@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require 'socket'
+require 'json'
+
+user = ARGV[0]
+
+s = TCPSocket.new "localhost", 2000
+
+s.puts "GET /api/visits?user=#{user} HTTP/1.1\r\n"
+s.puts "Accept: application/json\r\n"
+s.puts "\r\n"
+
+response = []
+while line = s.gets
+  response << line.chop
+end
+
+data = JSON.parse(response.last)
+
+unless data["message"] == "not found"
+  puts "#{data['user']} has hit the server #{data['count']} times."
+else
+  puts "user not found"
+end
+
+s.close

@@ -1,0 +1,38 @@
+<div class="basic-info">
+  <h1 class="user-name"><%= @user.name %></h1>
+  <h4 class="user-login"><%= @user.login %></h4>
+  <p class="user-location"><%= @user.location %></p>
+  <p class="user-email"><%= @user.email %></p>
+  <p>Followers: <span class="user-followers"><%= @user.followers %></span></p>
+  <p>Following: <span class="user-following"><%= @user.following %></span></p>
+</div>
+
+<% if @user.login == @authenticated_user %>
+  <%= form_for :repo,
+               :url => repos_path,
+               :html => { :method => :post },
+               :remote => true do |f| %>
+    Name: <%= f.text_field :reponame %><br />
+    <%= f.submit %>
+  <% end %>
+<% end %>
+
+<div class="popular-repos">
+  <% @repos.each do |repo| %>
+    <div class="popular-repo">
+      <div class="repo-name"><%= repo.name %></div>
+      <div class="repo-watchers"><%= repo.watchers_count %></div>
+    </div>
+  <% end %>
+</div>
+
+<div class="contribution-activity">
+  <% @activities.each do |activity| %>
+    <div class="activity">
+      <div class="activity-number"><%= activity.number %></div>
+      <div class="activity-title"><%= activity.title %></div>
+      <div class="activity-reponame"><%= activity.reponame %></div>
+      <div class="activity-status"><%= activity.status %></div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,21 @@
+var repoName = $('#repo_reponame').val();
+
+$.ajax({
+  url: '/repos',
+  type: 'post',
+  data: { reponame: repoName }
+}).done(function(response) {
+  var repoTemplate = [
+    "<div class='popular-repo'>",
+      "<div class='repo-name'>{{name}}</div>",
+      "<div class='repo-watchers'>{{watchers}}</div>",
+    "</div>"
+  ].join('\n');
+
+  var newRepo = repoTemplate
+    .replace("{{name}}", response.name)
+    .replace("{{watchers}}", response.watchers_count);
+
+  var reposContainer = $('.popular-repos')[0];
+  $(reposContainer).append(newRepo);
+});
